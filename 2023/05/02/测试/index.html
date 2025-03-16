@@ -1,0 +1,789 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="lookupyao">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="java面试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="测试">
+<meta property="og:url" content="https://lookupyao.github.io/2023/05/02/%E6%B5%8B%E8%AF%95/index.html">
+<meta property="og:site_name" content="lookup的知识盒">
+<meta property="og:description" content="java面试">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lookupyao.github.io/img/fluid.png">
+<meta property="article:published_time" content="2023-05-02T10:17:30.000Z">
+<meta property="article:modified_time" content="2023-05-06T05:08:09.058Z">
+<meta property="article:author" content="lookupyao">
+<meta property="article:tag" content="wenzhang">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lookupyao.github.io/img/fluid.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>测试 - lookup的知识盒</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lookupyao.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Look up博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="测试"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        lookupyao
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-05-02 18:17" pubdate>
+          2023年5月2日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          73 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">测试</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="java"><a href="#java" class="headerlink" title="java"></a>java</h1><h2 id="面向对象的特征有哪些方面"><a href="#面向对象的特征有哪些方面" class="headerlink" title="面向对象的特征有哪些方面"></a>面向对象的特征有哪些方面</h2><p>抽象：抽象是将一类对象的共同特征总结出来构造类的过程，包括数据抽象和行为抽象两方面。抽象只关注对象有哪些属性和行为，并不关注这些行为的细节是什么。</p>
+<p>继承：继承是从已有类中继承信息，继承的信息有属性和方法，继承变化中的软件系统有了一定的延续性</p>
+<p>封装：对方法和属性进行封装，对外提供基本的接口，外界只能通过接口来访问方法和属性，可以说封装就是隐藏一切可隐藏的东西，只向外界提供最简单的编程接口</p>
+<p>多态性：向上转型，父类型引用指向子类型对象，通过父类调用方法和属性，具体实现的是子类里面的方法和属性，就相当于父类只提供方法，当具体实现在子类型中，在开发中service层中的接口和实体类运用的就是多态，对外提供接口，这样做的好处是提升程序的扩展性。 向下转型，要使用子类中特有的方法和属性的时候（父类中没有），要进行向下转型</p>
+<h2 id="访问修饰符public-private-protected-以及不写（默认）的区别"><a href="#访问修饰符public-private-protected-以及不写（默认）的区别" class="headerlink" title="访问修饰符public,private,protected,以及不写（默认）的区别"></a><strong>访问修饰符public,private,protected,以及不写（默认）的区别</strong></h2><p><img src="C:\Users\86153\AppData\Roaming\Typora\typora-user-images\image-20230326174940260.png" srcset="/img/loading.gif" lazyload alt="image-20230326174940260"></p>
+<h2 id="基本数据类型有哪些"><a href="#基本数据类型有哪些" class="headerlink" title="基本数据类型有哪些"></a>基本数据类型有哪些</h2><p>Java中的基本数据类型只有8个：byte、short、int、long、float、double、char、boolean；除了基本类型（primitivetype），剩下的都是引用类型（referencetype），Java5以后引入的枚举类型也算是一种比较特殊的引用类型。</p>
+<h2 id="floatf-x3D-3-4-是否正确？"><a href="#floatf-x3D-3-4-是否正确？" class="headerlink" title="floatf&#x3D;3.4;是否正确？"></a><strong>floatf&#x3D;3.4;是否正确？</strong></h2><p>3.4是双精度数，将双精度型（double）赋值给浮点型（float）属于下转型（down-casting，也称为窄化）会造成精度损失，因此需要强制类型转换floatf&#x3D;(float)3.4;或者写成floatf&#x3D;3.4F;。</p>
+<h2 id="shorts1-x3D-1-s1-x3D-s1-1-有错吗-shorts1-x3D-1-s1-x3D-1-有错吗？"><a href="#shorts1-x3D-1-s1-x3D-s1-1-有错吗-shorts1-x3D-1-s1-x3D-1-有错吗？" class="headerlink" title="shorts1&#x3D;1;s1&#x3D;s1+1;有错吗?shorts1&#x3D;1;s1+&#x3D;1;有错吗？"></a><strong>shorts1&#x3D;1;s1&#x3D;s1+1;有错吗?shorts1&#x3D;1;s1+&#x3D;1;有错吗？</strong></h2><p>对于shorts1&#x3D;1;s1&#x3D;s1+1;由于1是int类型，因此s1+1运算结果也是int 型，需要强制转换类型才能赋值给short型。而shorts1&#x3D;1;s1+&#x3D;1;可以正确编译，因为s1+&#x3D;1;相当于s1&#x3D;(short)(s1+1);其中有隐含的强制类型转换</p>
+<h2 id="int和Integer有什么区别？"><a href="#int和Integer有什么区别？" class="headerlink" title="int和Integer有什么区别？"></a><strong>int和Integer有什么区别？</strong></h2><p>int的包装类就是Integer，从Java5开始引入了自动装箱&#x2F;拆箱机制，使得二者可以相互转换。Java为每个原始类型提供了包装类型：</p>
+<p>区别：int是基本数据类型，integer是引用数据类型，基本数据类型不能为null，而引用数据类型可以为null，在开发中，control层，接收前端的请求参数，一般会用包装类，防止前端传来一个null，造成空指针异常。</p>
+<p>原始类型:boolean，char，byte，short，int，long，float，double</p>
+<p>包装类型：Boolean，Character，Byte，Short，Integer，Long，Float，Double</p>
+<h2 id="JDK-和-JRE-和-JVM-分别是什么，有什么区别？"><a href="#JDK-和-JRE-和-JVM-分别是什么，有什么区别？" class="headerlink" title="JDK 和 JRE 和 JVM 分别是什么，有什么区别？"></a><strong>JDK</strong> <strong>和</strong> <strong>JRE</strong> <strong>和</strong> <strong>JVM</strong> <strong>分别是什么，有什么区别？</strong></h2><p><strong>JDK</strong> <strong>是</strong> <strong>Java</strong> <strong>开发⼯具包</strong>，包括了编译器、Java API、调试⼯具等，⽤于开发 Java 应⽤程序。</p>
+<p><strong>JRE</strong> <strong>是</strong> <strong>Java</strong> <strong>运⾏时环境</strong>，包括了 Java 虚拟机和 Java 标准类库，⽤于在计算机上运⾏ Java 应⽤程序。</p>
+<p><strong>JVM</strong> <strong>是</strong> <strong>Java</strong> <strong>虚拟机</strong>，是 Java 程序运⾏的环境，负责将 Java 代码转换为可以在计算机上运⾏的机器码，并提供必要的环境⽀持。</p>
+<p>JDK 是 Java Development Kit 缩写，它是功能⻬全的 Java SDK。它拥有 JRE 所拥有的⼀切，还有编译器（javac）和⼯具（如 javadoc 和 jdb）。它能够创建和编译程序。</p>
+<p>JRE 是 Java 运⾏时环境。它是运⾏已编译 Java 程序所需的所有内容的集合，包括 Java 虚拟（JVM），Java 类库，java 命令和其他的⼀些基础构件。但是，它不能⽤于创建新程序。</p>
+<p>如果你只是为了运⾏⼀下 Java 程序的话，那么你只需要安装 JRE 就可以了。如果你需要进⾏⼀些 Java 编程⽅⾯的⼯作，那么你就需要安装 JDK 了。</p>
+<p>JVM其实就是将（Java源代码编译成的字节码）转成机器码，在Java虚拟机运行字节码成机器码，字节码移植到在其他平台上JVM时可不加修改地运⾏。</p>
+<h2 id="什么是字节码？采⽤字节码的最大好处是什么？"><a href="#什么是字节码？采⽤字节码的最大好处是什么？" class="headerlink" title="什么是字节码？采⽤字节码的最大好处是什么？"></a><strong>什么是字节码？采⽤字节码的最大好处是什么？</strong></h2><p>字节码是 Java 程序编译后的中间代码，是⼀种可移植的⼆进制代码，可以在任何⽀持 Java 虚拟机（JVM）的平台</p>
+<p>上运⾏。字节码通过将 Java 源代码编译为字节码指令序列，使得 Java 程序可以跨平台运⾏，即使是在不同的操作</p>
+<p>系统和硬件平台上也可以运⾏。</p>
+<p>字节码采⽤中间代码的形式，相⽐于直接将程序编译为特定平台上的机器码，有以下⼏个好处：</p>
+<p>\1. <strong>可移植性</strong>：由于字节码是中间代码，所以可以在任何⽀持 JVM 的平台上运⾏，使得 Java 程序具有很好的可移</p>
+<p>植性。这也是 Java 跨平台的重要特性之⼀。</p>
+<p>\2. <strong>安全性</strong>：由于字节码需要在 JVM 中运⾏，所以可以对字节码进⾏安全检查，以确保程序不会对系统造成威</p>
+<p>胁。</p>
+<p>\3. <strong>性能</strong>：由于字节码是⼀种紧凑的⼆进制格式，相⽐于直接编译为机器码，可以更快地加载和传输，同时也可以</p>
+<p>在运⾏时进⾏动态优化，提⾼程序的执⾏效率。</p>
+<p>\4. <strong>可读性</strong>：相⽐于直接编译为机器码，字节码具有更好的可读性，可以⽅便地进⾏反汇编和调试。</p>
+<p>因此，采⽤字节码作为中间代码的最⼤好处是提⾼了 Java 程序的可移植性、安全性、性能和可读性。这也是 Java</p>
+<p>跨平台和安全性等特性的基础。</p>
+<h2 id="Java-和-C-、Go-语⾔的区别，各⾃的优缺点？"><a href="#Java-和-C-、Go-语⾔的区别，各⾃的优缺点？" class="headerlink" title="Java 和 C++、Go 语⾔的区别，各⾃的优缺点？"></a><strong>Java</strong> <strong>和</strong> C++、Go <strong>语⾔的区别，各⾃的优缺点？</strong></h2><p>Java、C++ 和 Go 都是流⾏的编程语⾔，它们各⾃有着⾃⼰的特点和优缺点。</p>
+<p>Java 是⼀种⾯向对象的编程语⾔，最初被设计⽤于开发嵌⼊式系统，现在已⼴泛应⽤于企业应⽤、Web 应⽤和移</p>
+<p>动应⽤开发等领域。Java 的优点包括：</p>
+<p>JAVA</p>
+<p>优点</p>
+<p>简单易学，代码可读性强</p>
+<p>跨平台，⼀次编写可以在多个操作系统上运⾏</p>
+<p>⾯向对象，⽀持继承、多态等特性</p>
+<p>丰富的类库，可以快速开发应⽤程序</p>
+<p>⾃动内存管理，减少了内存泄漏的可能性</p>
+<p>缺点:</p>
+<p>由于JVM的存在，运⾏速度相对较慢</p>
+<p>对于实时性要求较⾼的场景，Java的表现可能不如C++和Go</p>
+<p>C++</p>
+<p>优点：</p>
+<p>速度快，适合编写需要⾼性能的应⽤程序</p>
+<p>应⽤⼴泛，特别是在游戏开发、操作系统和嵌⼊式系统开发⽅⾯</p>
+<p>灵活性⾼，可以直接访问硬件和内存</p>
+<p>缺点：</p>
+<p>学习难度较⾼，需要掌握指针、内存管理等底层知识</p>
+<p>容易出现内存泄漏和指针错误等问题</p>
+<p>编写代码过程中需要更多的⼿动管理，相⽐ Java 更容易出错Go:</p>
+<p>优点：</p>
+<p>⾼并发，天⽣⽀持协程，能够轻松编写⾼效的并发程序</p>
+<p>简单易学，语法简洁，上⼿容易</p>
+<p>静态类型语⾔，可以避免⼀些潜在的运⾏时错误</p>
+<p>快速编译，可以快速构建和部署应⽤程序</p>
+<p>缺点：</p>
+<p>缺乏丰富的类库，与 Java 和 C++ 相⽐有些不⾜</p>
+<p>在⼀些性能要求极⾼的场景中可能不如 C++ 表现</p>
+<p>语⾔本身还⽐较年轻，相关⽣态和⼯具还需要进⼀步完善</p>
+<p>使⽤场景：</p>
+<h2 id="JDK-动态代理和-CGLIB-动态代理的区别是什么？"><a href="#JDK-动态代理和-CGLIB-动态代理的区别是什么？" class="headerlink" title="JDK 动态代理和 CGLIB 动态代理的区别是什么？"></a><strong>JDK</strong> <strong>动态代理和</strong> <strong>CGLIB</strong> <strong>动态代理的区别是什么？</strong></h2><h3 id="1、JDK动态代理具体实现原理："><a href="#1、JDK动态代理具体实现原理：" class="headerlink" title="1、JDK动态代理具体实现原理："></a>1、JDK动态代理具体实现原理：</h3><p>通过实现 InvocationHandler 接⼝创建⾃⼰的调⽤处理器；</p>
+<p>通过为 Proxy 类指定 ClassLoader 对象和⼀组 interface 来创建动态代理；</p>
+<p>通过反射机制获取动态代理类的构造函数，其唯⼀参数类型就是调⽤处理器接⼝类型；</p>
+<p>通过构造函数创建动态代理类实例，构造时调⽤处理器对象作为参数参⼊；</p>
+<p>JDK 动态代理是⾯向接⼝的代理模式，如果被代理⽬标没有接⼝那么 Spring 也⽆能为⼒，Spring 通过 Java 的反射</p>
+<p>机制⽣产被代理接⼝的新的匿名实现类，重写了其中 AOP 的增强⽅法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Person</span> &#123;<br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">sayHello</span><span class="hljs-params">()</span>;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Person</span> &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sayHello</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;Hello, I am a student.&quot;</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">PersonInvocationHandler</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">InvocationHandler</span> &#123;<br>    <span class="hljs-keyword">private</span> Object target;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">PersonInvocationHandler</span><span class="hljs-params">(Object target)</span> &#123;<br>        <span class="hljs-built_in">this</span>.target = target;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> Object <span class="hljs-title function_">invoke</span><span class="hljs-params">(Object proxy, Method method, Object[] args)</span> <span class="hljs-keyword">throws</span> Throwable &#123;<br>        System.out.println(<span class="hljs-string">&quot;Before method &quot;</span> + method.getName());<br>        <span class="hljs-type">Object</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> method.invoke(target, args);<br>        System.out.println(<span class="hljs-string">&quot;After method &quot;</span> + method.getName());<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ProxyConstructorExample</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        <span class="hljs-comment">//通过为 Proxy 类指定 ClassLoader 对象和⼀组 interface 来创建动态代理；</span><br>        Class&lt;?&gt; proxyClass = Proxy.getProxyClass(Person.class.getClassLoader(), Person.class);<br>        通过反射机制获取动态代理类的构造函数，其唯⼀参数类型就是调⽤处理器接⼝类型；<br>        Constructor&lt;?&gt; constructor = proxyClass.getConstructor(InvocationHandler.class);<br>        通过构造函数创建动态代理类实例，构造时调⽤处理器对象作为参数参⼊；<br>        <span class="hljs-type">PersonInvocationHandler</span> <span class="hljs-variable">handler</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">PersonInvocationHandler</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Student</span>());<br>        <span class="hljs-type">Person</span> <span class="hljs-variable">proxy</span> <span class="hljs-operator">=</span> (Person) constructor.newInstance(handler);<br>        proxy.sayHello();<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>在上述示例中，我们首先通过Proxy.getProxyClass()方法获取代理类的Class对象，其中第一个参数是代理对象的类加载器，第二个参数是代理对象需要实现的接口数组。然后，我们使用Class.getConstructor()方法获取代理类的构造函数，该构造函数的唯一参数类型是调用处理器接口类型InvocationHandler。</p>
+<p>接下来，我们创建了一个PersonInvocationHandler实例作为代理对象的调用处理器，然后使用反射调用代理类的构造函数，传入该调用处理器实例来创建代理对象。最后，该代理对象会在调用<code>sayHello</code>方法时，通过<code>PersonInvocationHandler</code>类中的<code>invoke</code>方法对其进行增强</p>
+<p>作用：</p>
+<p>JDK动态代理是Java提供的一种代理模式的实现方式，它可以在运行时动态地创建一个实现特定接口的代理对象，以实现对目标对象的间接访问和控制。</p>
+<ol>
+<li>日志记录：可以通过动态代理来记录程序的运行日志，包括方法调用的参数和返回值等信息，方便后期的调试和优化。</li>
+<li>性能监控：可以通过动态代理来统计方法的执行时间和调用次数等信息，以便进行性能监控和优化。</li>
+<li>事务管理：可以通过动态代理来实现事务管理，即在方法执行前后进行事务的开启、提交或回滚等操作，保证数据的一致性和完整性。</li>
+<li>安全控制：可以通过动态代理来实现对方法的权限控制，例如检查用户是否有足够的权限来执行特定的操作。</li>
+<li>其他用途：动态代理还可以用于实现远程调用、缓存代理、懒加载等功能。</li>
+</ol>
+<p>总之，JDK动态代理提供了一种灵活、通用的方式来实现代理模式，使得我们可以在运行时动态地对目标对象进行增强，从而实现各种功能。</p>
+<h3 id="2、CGLib动态代理："><a href="#2、CGLib动态代理：" class="headerlink" title="2、CGLib动态代理："></a>2、CGLib动态代理：</h3><p>利⽤ ASM 开源包，对代理对象类的 class ⽂件加载进来，通过修改其字节码⽣成⼦类来处理。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CglibProxy</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">MethodInterceptor</span> &#123;<br>    <br>    <span class="hljs-keyword">private</span> Object target;<br>    <br>    <span class="hljs-comment">//通过构造函数传入目标类</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-title function_">CglibProxy</span><span class="hljs-params">(Object target)</span> &#123;<br>        <span class="hljs-built_in">this</span>.target = target;<br>    &#125;<br><br>    <span class="hljs-comment">//将目标类设置成代理类的父类，并设置回调函数，最后返回代理类</span><br>    <span class="hljs-comment">//用来创建代理类</span><br>    <span class="hljs-keyword">public</span> Object <span class="hljs-title function_">createProxy</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">Enhancer</span> <span class="hljs-variable">enhancer</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Enhancer</span>();<br>        enhancer.setSuperclass(target.getClass());<br>        enhancer.setCallback(<span class="hljs-built_in">this</span>);<br>        <span class="hljs-keyword">return</span> enhancer.create();<br>    &#125;<br><br>    <span class="hljs-comment">//增强方法，这里可以拿到目标类（被代理类的一些方法名字、参数等）</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> Object <span class="hljs-title function_">intercept</span><span class="hljs-params">(Object obj, Method method, Object[] args, MethodProxy proxy)</span> <span class="hljs-keyword">throws</span> Throwable &#123;<br>        System.out.println(<span class="hljs-string">&quot;Before method &quot;</span> + method.getName());<br>        <span class="hljs-comment">//调用目标类的方法</span><br>        <span class="hljs-type">Object</span> <span class="hljs-variable">result</span> <span class="hljs-operator">=</span> proxy.invoke(target, args);<br>        System.out.println(<span class="hljs-string">&quot;After method &quot;</span> + method.getName());<br>        <span class="hljs-keyword">return</span> result;<br>    &#125;<br>&#125;<br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">Person</span> &#123;<br>    <span class="hljs-keyword">void</span> <span class="hljs-title function_">sayHello</span><span class="hljs-params">()</span>;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Student</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">Person</span> &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">sayHello</span><span class="hljs-params">()</span> &#123;<br>        System.out.println(<span class="hljs-string">&quot;Hello, I am a student.&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这里定义了一个CglibProxy类，其中使用了Enhancer类来生成代理类。在createProxy方法中，首先设置了代理类的父类为目标类的类对象，然后设置了回调函数为当前类的实例。在intercept方法中，打印了方法调用前后的日志，并使用MethodProxy类来调用目标对象的方法。</p>
+<p>使用CglibProxy来生成代理类的代码如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Person</span> <span class="hljs-variable">target</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">PersonImpl</span>();<br><span class="hljs-type">CglibProxy</span> <span class="hljs-variable">cglibProxy</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">CglibProxy</span>(target);<br><span class="hljs-type">Person</span> <span class="hljs-variable">proxy</span> <span class="hljs-operator">=</span> (Person) cglibProxy.createProxy();<br>proxy.sayHello(<span class="hljs-string">&quot;Jack&quot;</span>);<br></code></pre></td></tr></table></figure>
+
+<p>在这个例子中，Person是一个接口，PersonImpl是一个实现了Person接口的类。首先创建了PersonImpl的一个实例作为目标对象，然后使用CglibProxy来生成代理类，并将代理类强制转换为Person类型。最后调用代理类的sayHello方法。</p>
+<p>缺点：CGLIB代理是通过生成目标类的子类来实现的，因此需要在运行时动态地生成字节码，而字节码生成是一个相对复杂的过程，会占用更多的系统资源。此外，由于CGLIB代理是通过继承来实现的，如果目标类被final修饰，则无法生成其子类，因此无法使用CGLIB代理。</p>
+<p>优点：CGLIB代理可以代理非接口的类，而JDK动态代理只能代理实现了接口的类。此外，CGLIB代理也可以实现对目标对象的所有方法进行代理，而JDK动态代理只能代理实现了接口中的方法。</p>
+<h3 id="3、两者对⽐："><a href="#3、两者对⽐：" class="headerlink" title="3、两者对⽐："></a>3、两者对⽐：</h3><p>JDK 动态代理是⾯向接⼝的。</p>
+<p>CGLib 动态代理是通过字节码底层继承要代理类来实现，因此如果被代理类被 final 关键字所修饰，会失败。</p>
+<p>如果要被代理的对象是个实现类，那么 Spring 会使⽤ JDK 动态代理来完成操作（Spirng 默认采⽤ JDK 动态代理实</p>
+<p>现机制）；</p>
+<p>如果要被代理的对象不是个实现类，那么 Spring 会强制使⽤ CGLib 来实现动态代理。</p>
+<p>下面是springaop使用哪种代理类的源码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-keyword">public</span> AopProxy <span class="hljs-title function_">createAopProxy</span><span class="hljs-params">(AdvisedSupport config)</span> <span class="hljs-keyword">throws</span> AopConfigException &#123;<br>   <span class="hljs-comment">//首先判断是否需要使用CGLIB代理，如果以下条件中任意一个成立，则使用CGLIB代理</span><br>   <span class="hljs-keyword">if</span> (config.isOptimize() || config.isProxyTargetClass() || hasNoUserSuppliedProxyInterfaces(config)) &#123;<br>      Class&lt;?&gt; targetClass = config.getTargetClass();<br>      <span class="hljs-keyword">if</span> (targetClass == <span class="hljs-literal">null</span>) &#123;<br>         <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">AopConfigException</span>(<span class="hljs-string">&quot;TargetSource cannot determine target class: &quot;</span> +<br>               <span class="hljs-string">&quot;Either an interface or a target is required for proxy creation.&quot;</span>);<br>      &#125;<br>      <span class="hljs-comment">//如果</span><br>      <span class="hljs-keyword">if</span> (targetClass.isInterface() || Proxy.isProxyClass(targetClass)) &#123;<br>         <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JdkDynamicAopProxy</span>(config);<br>      &#125;<br>      <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ObjenesisCglibAopProxy</span>(config);<br>   &#125;<br>   <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JdkDynamicAopProxy</span>(config);<br>   &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这段代码是Spring框架中的AopProxyFactory类的createAopProxy方法的实现。</p>
+<p>在Spring AOP中，可以使用JDK动态代理或者CGLIB代理来实现对目标对象的代理。在这个方法中，首先判断是否需要使用CGLIB代理，如果以下条件中任意一个成立，则使用CGLIB代理：</p>
+<ol>
+<li>配置了**”optimize”**属性为true，表示使用CGLIB代理时进行优化。</li>
+<li>配置了**”proxyTargetClass”**属性为true，表示使用CGLIB代理时代理的是目标类而不是接口。</li>
+<li>配置的代理接口为空或者代理的目标类本身就是代理类，即使用的是JDK动态代理。</li>
+</ol>
+<p>如果以上条件都不成立，则使用JDK动态代理。</p>
+<p>JDK动态代理和CGLIB代理都是Spring AOP框架中实现代理的方式，它们各自有优缺点，可以根据具体的应用场景来选择使用哪一种。</p>
+<p>1、如果目标对象实现了接口，<strong>默认情况下会采用JDK的动态代理</strong><br>2、如果目标对象实现了接口，也可以<strong>强制使用CGLIB</strong><br>3、如果目标对象<strong>没有实现了接口，必须采用CGLIB库</strong>，spring会自动在JDK动态代理和CGLIB之间转换</p>
+<p>如果需要强制使用CGLIB来实现AOP，需要配置spring.aop.proxy-target-class&#x3D;true或@EnableAspectJAutoProxy(proxyTargetClass &#x3D; true</p>
+<h3 id="CGLIB动态代理和jdk使用的业务场景"><a href="#CGLIB动态代理和jdk使用的业务场景" class="headerlink" title="CGLIB动态代理和jdk使用的业务场景"></a>CGLIB动态代理和jdk使用的业务场景</h3><p>CGLIB动态代理和JDK动态代理都是实现动态代理的技术，但它们的使用场景有所不同。</p>
+<p>CGLIB动态代理适用于以下场景：</p>
+<ol>
+<li>目标对象没有实现任何接口。</li>
+<li>需要代理的目标对象的方法是非final方法。</li>
+<li>需要代理的目标对象的方法是final方法，但是可以通过继承的方式重写该方法。</li>
+<li>需要对目标对象进行增强操作的时候，如添加日志、缓存等。</li>
+</ol>
+<p>相比JDK动态代理，CGLIB动态代理的性能更高，但是生成的代理类会比较庞大，且不支持对final方法的代理。因此，CGLIB动态代理更适合在需要对非final方法进行增强或者需要对没有实现接口的类进行代理的场景。</p>
+<p>JDK动态代理适用于以下场景：</p>
+<ol>
+<li>目标对象实现了至少一个接口。</li>
+<li>需要代理的目标对象的方法是非final方法。</li>
+<li>不需要对目标对象进行增强操作，只需要在方法调用前后添加一些逻辑即可。</li>
+</ol>
+<p>相比CGLIB动态代理，JDK动态代理生成的代理类更加精简，且不需要额外引入第三方库，但是性能相对较低，且只能代理实现了接口的类。因此，JDK动态代理更适合在需要对实现了接口的类进行代理或者只需要在方法调用前后添加一些逻辑的场景。</p>
+<h2 id="Java-中-final-关键字有什么⽤？"><a href="#Java-中-final-关键字有什么⽤？" class="headerlink" title="Java 中 final 关键字有什么⽤？"></a><strong>Java</strong> <strong>中</strong> <strong>final</strong> <strong>关键字有什么⽤？</strong></h2>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="category-chain-item">计算机基础</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/wenzhang/">#wenzhang</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>测试</div>
+      <div>https://lookupyao.github.io/2023/05/02/测试/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>lookupyao</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年5月2日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/05/02/hello-world/" title="Hello World">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <script> function updateDateTime() { var today = new Date(); var futureDate = new Date("2023-05-02"); var timeDiff = futureDate.getTime() - today.getTime(); var days = Math.floor(timeDiff / (1000 * 60 * 60 * 24)-1); var hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)-1); var minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60)-1); var seconds = Math.floor((timeDiff % (1000 * 60)) / 1000); var timeDiffString = days + "天 " + hours + "时 " + minutes + "分 " + seconds + "秒";
+document.getElementById("datetime").innerText = timeDiffString; } setInterval(updateDateTime, 1000); </script> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Look up</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>2023-5-2</span></a> <div>  <span id="datetime"></span> <span>之前 Look up把一个个小盒子放在这里</span> </div> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
